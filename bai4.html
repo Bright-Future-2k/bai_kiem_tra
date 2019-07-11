@@ -6,44 +6,27 @@
 </head>
 <body>
 <script>
-    let arr =[
-        [1,2,3],
-        [4,5,6],
-        [7,8,9]
-    ];
-    function isOdd(num) {
-        if (num<=0){
-            return false;
-        } else {
-            if (num ==1 )
-            {
-                return true;
-            } else {
-                if (num % 2 == 0) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
-    }
-    function createArray() {
+    let arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]];
+    let output = [];
+
+    function createArray(arr) {
+
         for (let i = 0; i < arr.length; i++) {
-            for (let j = 0; j < arr.length; j++) {
-                if (isOdd(i))
-                {
-                    for (let j = 0; j < arr.length/2; j++) {
-                        let temp = arr[i][j];
-                        arr[i][j] = arr[i][arr.length - 1 - j];
-                        arr[i][arr.length - 1 - j] = temp;
-                    }
+            for (let j = 0; j < arr[i].length; j++) {
+                if (i % 2 !== 0) {
+                    arr[i].reverse();
                 }
-                document.write(arr[i][j]+ " " );
+                output.push(arr[i][j]);
+
             }
         }
-        return arr;
+        console.log(output)
     }
-    createArray();
+
+    createArray(arr)
 </script>
 </body>
 </html>
